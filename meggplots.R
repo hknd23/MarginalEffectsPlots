@@ -13,18 +13,18 @@ meggplot <- function(model,var1,var2,ci=.95,
   se.dy.dx <- sqrt(cov[var1,var1] + z0^2*cov[nrow(cov),ncol(cov)] + 2*z0*cov[var1,ncol(cov)])
   upr <- dy.dx + z*se.dy.dx
   lwr <- dy.dx - z*se.dy.dx
-  ggplot(data=NULL,aes(x=z0, y=dy.dx)) + theme_bw()+
-    labs(x=xlab,y=ylab,title=main) +
-    geom_line(aes(z0, dy.dx),size = me_lwd, 
+  ggplot2::ggplot(data=NULL,ggplot2::aes(x=z0, y=dy.dx)) + ggplot2::theme_bw()+
+    ggplot2::labs(x=xlab,y=ylab,title=main) +
+    ggplot2::geom_line(ggplot2::aes(z0, dy.dx),size = me_lwd, 
               linetype = me_lty, 
               color = me_col) +
-    geom_line(aes(z0, lwr), size = ci_lwd, 
+    ggplot2::geom_line(ggplot2::aes(z0, lwr), size = ci_lwd, 
               linetype = ci_lty, 
               color = ci_col) +
-    geom_line(aes(z0, upr), size = ci_lwd, 
+    ggplot2::geom_line(ggplot2::aes(z0, upr), size = ci_lwd, 
               linetype = ci_lty, 
               color = ci_col) +
-    geom_hline(yintercept=0,linetype=yint_lty,
+    ggplot2::geom_hline(yintercept=0,linetype=yint_lty,
                size=yint_lwd,
                color=yint_col)
 }
@@ -57,12 +57,12 @@ meggplotdum <- function(model,var1,var2,ci=.95,
   lwr<-c(lwr0,lwr1)
   se.dy.dx<-c(se.dy.dx0,se.dy.dx1)
   
-  ggplot(data=NULL,aes(x=zx, y=dy.dx)) + theme_bw()+
-    scale_x_discrete(limits = 0:1)+
-    labs(x=xlab,y=ylab,title=main)+ 
-    geom_point(mapping= aes(zx, dy.dx), color = me_col,size = me_lwd)+
-    geom_segment(mapping=aes(x=0,xend=0,y=lwr0,yend =upr0))+
-    geom_segment(mapping=aes(x=1,xend=1,y=lwr1,yend =upr1))+
-    geom_hline(yintercept=0,linetype=yint_lty,
+  ggplot2::ggplot(data=NULL,ggplot2::aes(x=zx, y=dy.dx)) + ggplot2::theme_bw()+
+    ggplot2::scale_x_discrete(limits = 0:1)+
+    ggplot2::labs(x=xlab,y=ylab,title=main)+ 
+    ggplot2::geom_point(mapping= ggplot2::aes(zx, dy.dx), color = me_col,size = me_lwd)+
+    ggplot2::geom_segment(mapping=ggplot2::aes(x=0,xend=0,y=lwr0,yend =upr0))+
+    ggplot2::geom_segment(mapping=ggplot2::aes(x=1,xend=1,y=lwr1,yend =upr1))+
+    ggplot2::geom_hline(yintercept=0,linetype=yint_lty,
                size=yint_lwd,
                color=yint_col)}
