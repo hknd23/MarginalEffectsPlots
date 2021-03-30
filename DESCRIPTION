@@ -1,0 +1,11 @@
+Package: MarginalEffectsPlots
+Title: Marginal Effects Plots 
+Version: 0.1
+Authors@R: person("Nguyen", "Huynh", email = "nkh8@psu.edu",
+                  role = c("aut", "cre"))
+Description: Create simple interaction plots for regression interaction terms
+Depends: R (>= 3.6.0)
+License: MIT
+LazyData: true
+Imports:
+    ggplot2
