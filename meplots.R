@@ -52,11 +52,13 @@ meplotdum <- function(model,var1,var2,ci=.95,
   lwr<-c(lwr0,lwr1)
   se.dy.dx<-c(se.dy.dx0,se.dy.dx1)
   
-  plot(x=zx, y=dy.dx,type="n",xlim=c(min(zx),max(zx)),
+  plot(x=zx, y=dy.dx,type="n",xlim=c(min(zx)-.5,max(zx)+.5), xaxt="none",
        ylim=c(min(lwr),max(upr)),
        xlab = xlab,
        ylab = ylab,
        main = main)
+  axis(side = 1, at = c(0,1))
+  axis(side = 2, at = c(1,3,7,10))
   points(zx, dy.dx, `lwd` = me_lwd,pch=16,  lty = me_lty, col = me_col)
   #points(zx, lwr, lwd = ci_lwd, lty = ci_lty, col = ci_col)
   #points(zx, upr, lwd = ci_lwd, lty = ci_lty, col = ci_col)
