@@ -1,3 +1,4 @@
+#' @export
 meggplot <- function(model,var1,var2,ci=.95,
                      xlab=var2,ylab=paste("Marginal Effect of",var1),
                      main="Marginal Effect Plot",
@@ -29,6 +30,7 @@ meggplot <- function(model,var1,var2,ci=.95,
                color=yint_col)
 }
 
+#' @export
 meggplotdum <- function(model,var1,var2,ci=.95,
                         xlab=var2,ylab=paste("Marginal Effect of",var1),
                         main="Marginal Effect Plot",

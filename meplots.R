@@ -1,3 +1,4 @@
+#' @export
 meplot <- function(model,var1,var2,ci=.95,
                    xlab=var2,ylab=paste("Marginal Effect of",var1),
                    main="Marginal Effect Plot",
@@ -24,6 +25,7 @@ meplot <- function(model,var1,var2,ci=.95,
   abline(h=0,lty=yint_lty,lwd=yint_lwd,col=yint_col)
 }
 
+#' @export
 meplotdum <- function(model,var1,var2,ci=.95,
                       xlab=var2,ylab=paste("Marginal Effect of",var1),
                       main="Marginal Effect Plot",
